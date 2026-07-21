@@ -1,0 +1,5 @@
+[CHECK] persona login and scoped route PASS
+[CHECK] story capability and acceptance criteria visible PASS
+[CHECK] cross-scope 404-before-403 PASS
+[CHECK] axe WCAG scan PASS (0 non-blocking findings)
+[CHECK] browser journey PASS (1979ms)
