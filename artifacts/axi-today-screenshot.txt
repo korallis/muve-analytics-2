@@ -1,0 +1,1 @@
+screenshot: /Users/leebarry/fusion-harness/muve-analytics-2/artifacts/today-desktop.png

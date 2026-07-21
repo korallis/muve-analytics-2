@@ -1,0 +1,11 @@
+page:
+  url: "http://127.0.0.1:4318/api/health"
+  refs: 5
+snapshot:
+uid=g13:13_0 RootWebArea url="http://127.0.0.1:4318/api/health"
+  uid=g13:13_1 StaticText "{"status":"ok","service":"muve-analytics-2","phase":"phase-0","timestamp":"2026-07-21T21:07:53.619Z","checks":{"runtime":"ok","routing":"ok"}}"
+  uid=g13:13_2 form
+    uid=g13:13_3 StaticText "Pretty print"
+    uid=g13:13_4 checkbox "Pretty print"
+help[1]:
+  Use `chrome-devtools-axi eval <expr>` for JS expressions. For multi-statement code, pass a function: `eval "() => { ...; return result }"`
