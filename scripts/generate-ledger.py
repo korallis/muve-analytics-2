@@ -13,7 +13,7 @@ def commit_for(story_id: str) -> str:
     log = subprocess.check_output(["git", "log", "--format=%H%x09%s"], cwd=REPO, text=True)
     for line in log.splitlines():
         sha, subject = line.split("\t", 1)
-        if story_id in subject:
+        if subject.startswith(f"{story_id}:"):
             return sha
     raise RuntimeError(f"No labelled commit for {story_id}")
 
