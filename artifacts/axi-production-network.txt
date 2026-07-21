@@ -1,0 +1,25 @@
+network:
+Emulating viewport: {"deviceScaleFactor":3,"isMobile":true,"hasTouch":true,"isLandscape":false,"width":390,"height":844}
+Emulating color scheme: light
+## Network requests
+Showing 1-26 of 26 (Page 1 of 1).
+reqid=64 GET https://muve-analytics-2.vercel.app/today [304]
+reqid=65 GET https://muve-analytics-2.vercel.app/_next/static/chunks/1qa29lxfpwuuz.css?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=66 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3z5q_p4msz2ha.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=67 GET https://muve-analytics-2.vercel.app/_next/static/chunks/15orcrkp-_9ct.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=68 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3hdj40qmts5sf.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=69 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3px1fn4z13fiy.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=70 GET https://muve-analytics-2.vercel.app/_next/static/chunks/turbopack-0wch6_klrp4sq.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=71 GET https://muve-analytics-2.vercel.app/_next/static/chunks/05-c3ty_6dwfk.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=72 GET https://muve-analytics-2.vercel.app/_next/static/chunks/14mrh2-p_w84d.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=73 GET https://muve-analytics-2.vercel.app/_next/static/chunks/2fqlcr-ia71j-.js?dpl=dpl_DRBjGVsQ5mAYSvnGXgE4KQDTqE9z [200]
+reqid=74 GET https://muve-analytics-2.vercel.app/operations?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=75 GET https://muve-analytics-2.vercel.app/quality-governance?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=76 GET https://muve-analytics-2.vercel.app/people-supported?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=77 GET https://muve-analytics-2.vercel.app/today?_rsc=32pjnp9QTWFJBJRm [304]
+reqid=78 GET https://muve-analytics-2.vercel.app/today?_rsc=tzc15p1PuSGHyju8 [200]
+reqid=79 GET https://muve-analytics-2.vercel.app/operations?_rsc=32pjnp9QTWFJBJRm [304]
+    ... (truncated, 2881 chars total)
+help[2]:
+  Run `chrome-devtools-axi network-get <id>` to see request details
+  Run `chrome-devtools-axi network --type fetch` to filter by type

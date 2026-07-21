@@ -1,0 +1,3 @@
+emulated:
+  viewport: "390x844x3,mobile,touch"
+  colorScheme: light

@@ -4,7 +4,8 @@
 **Session:** `muve-analytics2-phase0`  
 **Candidate:** local production build created by `npm run build`  
 **Loaded origin:** `http://127.0.0.1:4318`  
-**Primary loaded URL:** `http://127.0.0.1:4318/today`
+**Primary loaded URL:** `http://127.0.0.1:4318/today`  
+**Production URL retested after deployment:** `https://muve-analytics-2.vercel.app/today`
 
 ## Journeys executed
 
@@ -15,6 +16,7 @@
 5. AXI keyboard testing pressed Tab from page load. Focus landed on **Skip to main content**. Pressing Enter changed the URL to `#main-content` and focused the main landmark. Raw focus evidence is in `axi-keyboard-focus.txt` and `axi-keyboard-result.txt`.
 6. AXI console inspection returned `<no console messages found>` (`axi-console.txt`). AXI network inspection showed successful 200/304 responses for the document, Next.js assets and prefetched workspace routes (`axi-network.txt`).
 7. AXI opened `http://127.0.0.1:4318/api/health`; the browser snapshot in `axi-health-snapshot.txt` contains `status: ok`, `service: muve-analytics-2`, `phase: phase-0`, and passing runtime/routing checks.
+8. After Vercel reported the production deployment Ready, a separate AXI session (`muve-analytics2-production`) loaded `https://muve-analytics-2.vercel.app/today`, clicked through to `https://muve-analytics-2.vercel.app/quality-governance`, repeated the 390×844 mobile emulation and inspected the production console. The full snapshots are in `axi-production-today.txt`, `axi-production-quality.txt` and `axi-production-mobile-today.txt`; `axi-production-console.txt` records no console messages.
 
 ## Findings
 
@@ -25,5 +27,6 @@
 - **PASS:** No browser console errors were emitted.
 - **PASS:** No failed document, asset or workspace request was found in the inspected network log.
 - **PASS:** Demonstration content is visibly labelled and contains no real personal data.
+- **PASS:** The final production alias was exercised through AXI at desktop and mobile sizes after deployment.
 
 No blocking browser issue was found. Raw AXI outputs are retained beside this report so another agent can reproduce and inspect individual snapshots rather than relying on this summary.
