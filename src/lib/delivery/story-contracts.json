@@ -46,7 +46,7 @@
       "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
       "Material reads, changes, approvals or exports use the append-only audit contract."
     ],
-    "route": "/integration-health"
+    "route": "/today"
   },
   {
     "id": "E1.4",

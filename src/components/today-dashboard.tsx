@@ -10,6 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { AskMuvePanel } from "@/components/ask-muve-panel";
+import { CapabilityEvidence } from "@/components/capability-evidence";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -184,6 +185,7 @@ export function TodayDashboard() {
           </CardContent>
         </Card>
       </div>
+      <CapabilityEvidence route="/today" title="Freshness and lineage control" />
     </div>
   );
 }

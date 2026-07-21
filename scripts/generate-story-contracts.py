@@ -51,6 +51,8 @@ def phase_for(story_id: str) -> int:
 
 
 def route_for(story_id: str) -> str:
+    if story_id == "E1.3":
+        return "/today"
     if story_id in {"E5.4", "E5.5", "E5.9"}:
         return "/operations"
     return ROUTES[story_id.split(".")[0]]
