@@ -1,9 +1,12 @@
 import { AppShell } from "@/components/app-shell";
+import { CapabilityEvidence } from "@/components/capability-evidence";
+import { WorkforceDepth } from "@/components/workforce-depth";
 import { WorkspaceOverview } from "@/components/workspace-overview";
 
 export default function WorkforcePage() {
   return (
     <AppShell active="workforce">
+      <div className="space-y-8">
       <WorkspaceOverview
         eyebrow="Workforce"
         title="Safe staffing readiness"
@@ -21,6 +24,9 @@ export default function WorkforcePage() {
           { title: "Supervision evidence needs review", detail: "Four staff records", status: "Review", tone: "neutral" },
         ]}
       />
+      <WorkforceDepth />
+      <CapabilityEvidence route="/workforce" title="Workforce readiness controls" />
+      </div>
     </AppShell>
   );
 }

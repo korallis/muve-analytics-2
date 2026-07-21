@@ -1,4 +1,6 @@
 import { AppShell } from "@/components/app-shell";
+import { CapabilityEvidence } from "@/components/capability-evidence";
+import { ExceptionWorklist } from "@/components/exception-worklist";
 import { ActionCentre } from "@/components/action-centre";
 
 export default function ActionsPage() {
@@ -10,7 +12,9 @@ export default function ActionsPage() {
           <h1 className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">Close the assurance loop</h1>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">Every exception and assurance gap has an accountable owner, due date, source evidence and human sign-off.</p>
         </header>
+        <ExceptionWorklist />
         <ActionCentre />
+        <CapabilityEvidence route="/actions" title="Actions and escalation controls" />
       </div>
     </AppShell>
   );

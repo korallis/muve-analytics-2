@@ -14,7 +14,7 @@ export const comparePeriodsInput = z.object({
 
 export function get_metric(input: z.infer<typeof getMetricInput>) {
   const result = getMetric(input.metricId);
-  if (!result) return { found: false, metricId: input.metricId };
+  if (!result || result.value === null) return { found: false, metricId: input.metricId, reason: "Insufficient evidence" };
   return {
     found: true,
     metricId: input.metricId,
@@ -29,7 +29,7 @@ export function get_metric(input: z.infer<typeof getMetricInput>) {
 
 export function compare_periods(input: z.infer<typeof comparePeriodsInput>) {
   const result = getMetric(input.metricId);
-  if (!result) return { found: false, metricId: input.metricId };
+  if (!result || result.value === null) return { found: false, metricId: input.metricId, reason: "Insufficient evidence" };
   const prior = Number((result.value * 0.97).toFixed(1));
   return {
     found: true,

@@ -1,0 +1,876 @@
+[
+  {
+    "id": "E1.1",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "an SA",
+    "story": "As an SA, I want Birdie data extracted by the scheduled Python pipeline into curated marts, so reports never query raw mirrored schema.",
+    "criteria": [
+      "nightly rebuild completes ≤15 min after 05:30 UTC.",
+      "hourly incremental for clients/visits/alerts/observations.",
+      "each mart documents source tables and grain.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E1.2",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "an SA",
+    "story": "As an SA, I want schema drift and load validation handled per §4.4, so a source change can never silently freeze or corrupt a table at app runtime.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: a source change can never silently freeze or corrupt a table at app runtime.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E1.3",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "any user",
+    "story": "As any user, I want freshness and lineage on every surface, so I can judge whether data is safe to use.",
+    "criteria": [
+      "per-mart `loaded_at` + source watermark + definition version visible.",
+      "stale >26h shows an amber banner.",
+      "missing coverage renders as Unknown, never zero.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E1.4",
+    "priority": "P1",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "an SA",
+    "story": "As an SA, I want Xero and Spendesk synced by the same pipeline framework, so finance data has the same freshness contract.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: finance data has the same freshness contract.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E1.5",
+    "priority": "P1",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "an SA",
+    "story": "As an SA, I want a rate-limited \"Refresh now\" button that triggers the incremental pipeline on demand.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want a rate-limited \"Refresh now\" button that triggers the incremental pipeline on demand.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E1.6",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E1",
+    "persona": "an SA",
+    "story": "As an SA, I want integration health in one place (Snowflake/Birdie, Xero, Spendesk, Neon, AI Gateway): last success, source lag, failed step, retry state, and which metrics/workspaces an incident affects.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want integration health in one place (Snowflake/Birdie, Xero, Spendesk, Neon, AI Gateway): last success, source lag, failed step, retry state, and which metrics/workspaces an incident affects.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/integration-health"
+  },
+  {
+    "id": "E2.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E2",
+    "persona": "a QL",
+    "story": "As a QL, I want every metric defined exactly once per the contract (§4.3), so the same number never disagrees between two screens.",
+    "criteria": [
+      "incident counts on Command Centre, Client 360, and governance views resolve to one definition.",
+      "a registry test asserts no orphan metrics.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/metric-glossary"
+  },
+  {
+    "id": "E2.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E2",
+    "persona": "an RM",
+    "story": "As an RM, I want estimated/keyword-derived metrics (RPI) permanently labelled as indicators at the definition level, so no screen can present them as audited counts.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: no screen can present them as audited counts.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/metric-glossary"
+  },
+  {
+    "id": "E2.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E2",
+    "persona": "a metric owner",
+    "story": "As a metric owner, I want definition changes versioned with named approval, so dashboards cannot silently change meaning and users can inspect the change history.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: dashboards cannot silently change meaning and users can inspect the change history.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/metric-glossary"
+  },
+  {
+    "id": "E2.4",
+    "priority": "P1",
+    "phase": 2,
+    "epic": "E2",
+    "persona": "a BD",
+    "story": "As a BD, I want a metric glossary auto-generated from the registry, so definitions are transparent to inspectors and the board.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: definitions are transparent to inspectors and the board.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/metric-glossary"
+  },
+  {
+    "id": "E3.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E3",
+    "persona": "an SA",
+    "story": "As an SA, I want deny-by-default access: roles plus per-user report and client scoping enforced in middleware, inside metric compilation, in AI tools, and on exports — evaluated by one central policy service.",
+    "criteria": [
+      "automated negative tests prove cross-scope access is impossible, including via AI chat.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/security-audit"
+  },
+  {
+    "id": "E3.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E3",
+    "persona": "an SA",
+    "story": "As an SA, I want record-level ownership checks on every client-scoped read and mutation (ported 404-before-403 pattern).",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want record-level ownership checks on every client-scoped read and mutation (ported 404-before-403 pattern).",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/security-audit"
+  },
+  {
+    "id": "E3.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E3",
+    "persona": "an AU",
+    "story": "As an AU, I want an append-only audit trail of material reads, writes, approvals, AI runs, and exports.",
+    "criteria": [
+      "events carry actor, policy scope, action, subject, time, correlation ID.",
+      "audit search itself respects policy and is audited.",
+      "secrets and care free-text never enter the payload.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/security-audit"
+  },
+  {
+    "id": "E3.4",
+    "priority": "P1",
+    "phase": 0,
+    "epic": "E3",
+    "persona": "an SA",
+    "story": "As an SA, I want Microsoft Entra ID SSO via the Auth.js provider when the organisation is ready, with an audited break-glass account.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want Microsoft Entra ID SSO via the Auth.js provider when the organisation is ready, with an audited break-glass account.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/security-audit"
+  },
+  {
+    "id": "E4.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E4",
+    "persona": "an RM",
+    "story": "As an RM, I want a home screen organised by the 5 key questions with an assurance status per quality statement (per D7) backed by drill-through, so I always know inspection readiness.",
+    "criteria": [
+      "each statement shows contributing metrics, trend, evidence coverage, and open actions.",
+      "a deterministic, severity/SLA-prioritised briefing tops the page.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E4",
+    "persona": "a QL",
+    "story": "As a QL, I want the assurance matrix to model all 34 current quality statements with the correct domain distribution (Safe 8, Effective 6, Caring 5, Responsive 7, Well-led 8) and the six CQC evidence categories, with Inapplicable and Unknown as distinct statuses — fixing 1.0's scoring model.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want the assurance matrix to model all 34 current quality statements with the correct domain distribution (Safe 8, Effective 6, Caring 5, Responsive 7, Well-led 8) and the six CQC evidence categories, with Inapplicable and Unknown as distinct statuses — fixing 1.0's scoring model.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E4",
+    "persona": "a QL",
+    "story": "As a QL, I want an evidence register (scope, category, owner, date, source, review date, mapped statements).",
+    "criteria": [
+      "files via short-lived Vercel Blob links.",
+      "every download audited.",
+      "superseded evidence stays traceable.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.4",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E4",
+    "persona": "a QL",
+    "story": "As a QL, I want threshold rules on any semantic metric (e.g., unresolved incidents >7 days, training compliance <95%) that raise risk items on the Command Centre.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want threshold rules on any semantic metric (e.g., unresolved incidents >7 days, training compliance <95%) that raise risk items on the Command Centre.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.5",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E4",
+    "persona": "an RM",
+    "story": "As an RM, I want one-click inspection packs per key question from a frozen snapshot.",
+    "criteria": [
+      "snapshot records scope, period, source watermarks, and metric versions.",
+      "signed snapshots are immutable (corrections create a new version).",
+      "PDF/DOCX/XLSX reconcile to the same snapshot and include actions taken and approved AI narrative.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.6",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E4",
+    "persona": "a BD",
+    "story": "As a BD, I want a monthly board digest (assurance movement, finance headlines, top risks) exportable as a board paper, plus saved views and scheduled outputs with audited delivery.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a BD, I want a monthly board digest (assurance movement, finance headlines, top risks) exportable as a board paper, plus saved views and scheduled outputs with audited delivery.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.7",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E4",
+    "persona": "an RM",
+    "story": "As an RM, I want statutory notifications and Duty of Candour steps tracked (applicability confirmed by a responsible person; deadlines, owners, evidence; AI-drafted correspondence stays an unsubmitted draft).",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want statutory notifications and Duty of Candour steps tracked (applicability confirmed by a responsible person; deadlines, owners, evidence; AI-drafted correspondence stays an unsubmitted draft).",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E4.8",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E4",
+    "persona": "a QL",
+    "story": "As a QL, I want feedback, complaints, and compliments captured with themes, SLAs, and outcomes linked to quality statements, so assurance doesn't rely only on system activity data.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: assurance doesn't rely only on system activity data.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/quality-governance"
+  },
+  {
+    "id": "E5.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E5",
+    "persona": "an RM",
+    "story": "As an RM, I want a per-client unified timeline (incidents, safeguarding, RPI, authorisation events, observations, risk-level changes, medication events), so I see the whole person.",
+    "criteria": [
+      "client-level permission checked on every load and export.",
+      "source and freshness visible per section.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E5",
+    "persona": "a QL",
+    "story": "As a QL, I want the canonical incident record (§4.2) used everywhere, so totals and detail views always share one population definition, with structured follow-up states.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: totals and detail views always share one population definition, with structured follow-up states.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E5",
+    "persona": "a QL",
+    "story": "As a QL, I want in-app safeguarding flagging preserved (app-owned table, alert-anchored) with exact counts when filtered to flagged.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want in-app safeguarding flagging preserved (app-owned table, alert-anchored) with exact counts when filtered to flagged.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.4",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E5",
+    "persona": "an OD",
+    "story": "As an OD, I want visit-delivery assurance: missed, late, shortened, cancelled, and incomplete visits distinguished from missing source data, with double-up visits handled correctly and actions available from any material exception.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an OD, I want visit-delivery assurance: missed, late, shortened, cancelled, and incomplete visits distinguished from missing source data, with double-up visits handled correctly and actions available from any material exception.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/operations"
+  },
+  {
+    "id": "E5.5",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E5",
+    "persona": "a QL",
+    "story": "As a QL, I want medication and care-task exceptions grouped by risk (given / refused / omitted / unavailable / late / undocumented as separate outcomes; PRN and repeat patterns identifiable), so genuine safety concerns are prioritised.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: genuine safety concerns are prioritised.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/operations"
+  },
+  {
+    "id": "E5.6",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E5",
+    "persona": "an RM",
+    "story": "As an RM, I want setting-aware legal authorisations: service setting determines available routes, so supported-living cases are never mislabelled as DoLS; capacity assessment, best-interest decision, restrictions, and the authorisation itself are separate records.",
+    "criteria": [
+      "expiry pipeline (active / pending / expiring 7/30 days) with document storage and renewal actions auto-raised at T-30.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.7",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E5",
+    "persona": "a QL",
+    "story": "As a QL, I want structured per-client RPI records (type, trigger, duration, technique, injury, de-escalation, debrief, outcome) with the AI impact read always labelled AI-derived, and repeated patterns and missing debriefs visible.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want structured per-client RPI records (type, trigger, duration, technique, injury, de-escalation, debrief, outcome) with the AI impact read always labelled AI-derived, and repeated patterns and missing debriefs visible.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.8",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E5",
+    "persona": "an RM",
+    "story": "As an RM, I want client required-competency capture matched against skills held by that client's caregivers, with gaps feeding the Actions loop.",
+    "criteria": [
+      "expired competencies don't count.",
+      "missing requirements show Unknown, never 100%.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E5.9",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E5",
+    "persona": "a TL",
+    "story": "As a TL, I want observation/daily-note search with full filtered exports (no row cap) in CSV/XLSX/PDF/DOCX.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a TL, I want observation/daily-note search with full filtered exports (no row cap) in CSV/XLSX/PDF/DOCX.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/operations"
+  },
+  {
+    "id": "E5.10",
+    "priority": "P2",
+    "phase": 4,
+    "epic": "E5",
+    "persona": "an RM",
+    "story": "As an RM, I want goals, risks, and care-plan review dates monitored, with missing/overdue reviews as explicit exceptions; AI may summarise recorded progress but cannot infer an unrecorded outcome.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want goals, risks, and care-plan review dates monitored, with missing/overdue reviews as explicit exceptions; AI may summarise recorded progress but cannot infer an unrecorded outcome.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/people-supported/clients/RH-014"
+  },
+  {
+    "id": "E6.1",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E6",
+    "persona": "a WL",
+    "story": "As a WL, I want a training & compliance matrix (mandatory %, overdue, due-soon, missing docs) at org, service, and per-staff level — including the per-client coverage computed via a grouped caregiver→client query that 1.0 left unwired.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a WL, I want a training & compliance matrix (mandatory %, overdue, due-soon, missing docs) at org, service, and per-staff level — including the per-client coverage computed via a grouped caregiver→client query that 1.0 left unwired.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/workforce"
+  },
+  {
+    "id": "E6.2",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E6",
+    "persona": "an OD",
+    "story": "As an OD, I want safe-staffing metrics (missed/forced check-ins/outs, punctuality) with status-coverage % always shown next to forced counts, so denominators are honest.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: denominators are honest.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/workforce"
+  },
+  {
+    "id": "E6.3",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E6",
+    "persona": "an OD",
+    "story": "As an OD, I want readiness and capacity: required vs scheduled vs delivered hours, availability, absence, and continuity (approved definition; agency vs substantive distinguishable), to spot uncovered visits and plan staffing.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an OD, I want readiness and capacity: required vs scheduled vs delivered hours, availability, absence, and continuity (approved definition; agency vs substantive distinguishable), to spot uncovered visits and plan staffing.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/workforce"
+  },
+  {
+    "id": "E6.4",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E6",
+    "persona": "a WL",
+    "story": "As a WL, I want onboarding, training, supervision, and document gaps in one lifecycle workflow (missing / expired / due-soon separate; requirements vary by role and service).",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a WL, I want onboarding, training, supervision, and document gaps in one lifecycle workflow (missing / expired / due-soon separate; requirements vary by role and service).",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/workforce"
+  },
+  {
+    "id": "E6.5",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E6",
+    "persona": "an OD",
+    "story": "As an OD, I want the compliance gap XLSX export preserved as-is.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an OD, I want the compliance gap XLSX export preserved as-is.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/workforce"
+  },
+  {
+    "id": "E7.1",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E7",
+    "persona": "an FD",
+    "story": "As an FD, I want the Xero suite (P&L, balance sheet, cash flow, budget vs actual, exec summary, aged payables, contact analysis) as tabs in one workspace on the new UI, with multi-org context persisting across tabs and values reconciling to stored Xero snapshots.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an FD, I want the Xero suite (P&L, balance sheet, cash flow, budget vs actual, exec summary, aged payables, contact analysis) as tabs in one workspace on the new UI, with multi-org context persisting across tabs and values reconciling to stored Xero snapshots.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/finance"
+  },
+  {
+    "id": "E7.2",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E7",
+    "persona": "a CC",
+    "story": "As a CC, I want a credit-control worklist (aged receivables, DSO, risk accounts, promises, disputes) where priority factors are deterministic and explainable, AI-suggested actions change nothing until approved, and all activity shares one account timeline.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a CC, I want a credit-control worklist (aged receivables, DSO, risk accounts, promises, disputes) where priority factors are deterministic and explainable, AI-suggested actions change nothing until approved, and all activity shares one account timeline.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/finance"
+  },
+  {
+    "id": "E7.3",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E7",
+    "persona": "an FD",
+    "story": "As an FD, I want package economics: revenue, delivered hours (Birdie), staffing cost, and expenses (Spendesk) by client/package with versioned allocation rules, unallocated costs visible, and movement decomposed into volume/rate/staffing/expense effects — a cross-source metric the semantic layer makes safe.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an FD, I want package economics: revenue, delivered hours (Birdie), staffing cost, and expenses (Spendesk) by client/package with versioned allocation rules, unallocated costs visible, and movement decomposed into volume/rate/staffing/expense effects — a cross-source metric the semantic layer makes safe.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/finance"
+  },
+  {
+    "id": "E7.4",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E7",
+    "persona": "an FD",
+    "story": "As an FD, I want a funding-gap view (LA/NHS/private mix per client vs actual billing) with scenario modelling.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an FD, I want a funding-gap view (LA/NHS/private mix per client vs actual billing) with scenario modelling.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/finance"
+  },
+  {
+    "id": "E7.5",
+    "priority": "P1",
+    "phase": 3,
+    "epic": "E7",
+    "persona": "an FD",
+    "story": "As an FD, I want Spendesk expenses matched to services/clients with confidence and rationale exposed; low-confidence matches require human approval; overrides are audited.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an FD, I want Spendesk expenses matched to services/clients with confidence and rationale exposed; low-confidence matches require human approval; overrides are audited.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/finance"
+  },
+  {
+    "id": "E8.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E8",
+    "persona": "any user",
+    "story": "As any user, I want Ask Muve: natural-language questions answered via allowlisted typed tools against the semantic layer.",
+    "criteria": [
+      "tools are metric/dimension calls, never free SQL.",
+      "every factual claim cites the metrics, period, and data timestamp used.",
+      "each tool call reauthorises the caller's scope.",
+      "insufficient evidence produces an explicit non-answer.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E8",
+    "persona": "an RM",
+    "story": "As an RM, I want \"Explain change\": deterministic period comparison establishes what moved before AI is called; AI only describes retrieved contributing factors, states limitations, and links every factor to a metric or record population.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want \"Explain change\": deterministic period comparison establishes what moved before AI is called; AI only describes retrieved contributing factors, states limitations, and links every factor to a metric or record population.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E8",
+    "persona": "an RM",
+    "story": "As an RM, I want AI suggestions to become actions only through human confirmation (owner, priority, due date), with suggestions, edits, approvals, and rejections audited — accountability never transfers to the model.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want AI suggestions to become actions only through human confirmation (owner, priority, due date), with suggestions, edits, approvals, and rejections audited — accountability never transfers to the model.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.4",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E8",
+    "persona": "an SA",
+    "story": "As an SA, I want all AI spend tagged per-feature with monthly budget caps in the Gateway.",
+    "criteria": [
+      "zero AWS credentials anywhere.",
+      "PII sent server-side only, never logged.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.5",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E8",
+    "persona": "an RM",
+    "story": "As an RM, I want auto-generated narrative on report surfaces (what changed, why it matters, what to do), cached by prompt-hash with TTL, degrading silently to no-narrative on failure.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want auto-generated narrative on report surfaces (what changed, why it matters, what to do), cached by prompt-hash with TTL, degrading silently to no-narrative on failure.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.6",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E8",
+    "persona": "an RM",
+    "story": "As an RM, I want per-client governance summaries and RPI impact reads carried forward (schema-validated JSON output pattern), regenerated only when underlying data changes.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want per-client governance summaries and RPI impact reads carried forward (schema-validated JSON output pattern), regenerated only when underlying data changes.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.7",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E8",
+    "persona": "a BD",
+    "story": "As a BD, I want a scheduled weekly digest email: assurance movement, anomalies, finance headlines, overdue actions.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a BD, I want a scheduled weekly digest email: assurance movement, anomalies, finance headlines, overdue actions.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E8.8",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E8",
+    "persona": "a QL",
+    "story": "As a QL, I want anomaly detection (incident spikes per client/category, DSO jumps, training-compliance drops) surfacing as risk items with an AI explanation.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want anomaly detection (incident spikes per client/category, DSO jumps, training-compliance drops) surfacing as risk items with an AI explanation.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/ai-governance"
+  },
+  {
+    "id": "E9.1",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E9",
+    "persona": "a TL",
+    "story": "As a TL, I want one unified exception worklist (visits, medication, incidents, staffing, overdue reviews) that can be filtered, assigned, acknowledged, resolved, and reopened, with duplicate signals grouped without hiding underlying records.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a TL, I want one unified exception worklist (visits, medication, incidents, staffing, overdue reviews) that can be filtered, assigned, acknowledged, resolved, and reopened, with duplicate signals grouped without hiding underlying records.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/actions"
+  },
+  {
+    "id": "E9.2",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E9",
+    "persona": "an RM",
+    "story": "As an RM, I want to convert any risk item, exception, gap, or AI recommendation into an assigned action with source, owner, priority, due date, and evidence link.",
+    "criteria": [
+      "completion of controlled action types requires evidence and reviewer sign-off.",
+      "full history retained.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/actions"
+  },
+  {
+    "id": "E9.3",
+    "priority": "P0",
+    "phase": 2,
+    "epic": "E9",
+    "persona": "a QL",
+    "story": "As a QL, I want overdue actions visible on the Command Centre and in digests, and completed actions included in evidence packs.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As a QL, I want overdue actions visible on the Command Centre and in digests, and completed actions included in evidence packs.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/actions"
+  },
+  {
+    "id": "E9.4",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E9",
+    "persona": "an RM",
+    "story": "As an RM, I want configurable escalation rules (deterministic conditions, auditable delivery and acknowledgement) so critical unresolved items cannot be ignored.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an RM, I want configurable escalation rules (deterministic conditions, auditable delivery and acknowledgement) so critical unresolved items cannot be ignored.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/actions"
+  },
+  {
+    "id": "E10.1",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E10",
+    "persona": "an SA",
+    "story": "As an SA, I want every PR to get a Vercel preview with a Neon branch seeded from anonymised-but-realistic fixtures — review happens on real shapes, never production PII.",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want every PR to get a Vercel preview with a Neon branch seeded from anonymised-but-realistic fixtures — review happens on real shapes, never production PII.",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/delivery-readiness"
+  },
+  {
+    "id": "E10.2",
+    "priority": "P0",
+    "phase": 1,
+    "epic": "E10",
+    "persona": "an SA",
+    "story": "As an SA, I want pipeline data tests (§4.4 step 5) on every load, and the semantic layer unit-tested (compiled SQL per metric against fixture marts).",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want pipeline data tests (§4.4 step 5) on every load, and the semantic layer unit-tested (compiled SQL per metric against fixture marts).",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/delivery-readiness"
+  },
+  {
+    "id": "E10.3",
+    "priority": "P1",
+    "phase": 4,
+    "epic": "E10",
+    "persona": "an SA",
+    "story": "As an SA, I want E2E journey, accessibility (WCAG 2.2 AA), and AI-evaluation suites wired into CI (§9).",
+    "criteria": [
+      "The authorised persona can complete the stated outcome: As an SA, I want E2E journey, accessibility (WCAG 2.2 AA), and AI-evaluation suites wired into CI (§9).",
+      "The surface states scope, source freshness, coverage and definition version; missing coverage is Unknown.",
+      "A cross-scope client request is denied with a not-found response before permission details are disclosed.",
+      "Material reads, changes, approvals or exports use the append-only audit contract."
+    ],
+    "route": "/delivery-readiness"
+  }
+]

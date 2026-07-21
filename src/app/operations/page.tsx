@@ -1,9 +1,12 @@
 import { AppShell } from "@/components/app-shell";
+import { CapabilityEvidence } from "@/components/capability-evidence";
+import { OperationsDepth } from "@/components/operations-depth";
 import { WorkspaceOverview } from "@/components/workspace-overview";
 
 export default function OperationsPage() {
   return (
     <AppShell active="operations">
+      <div className="space-y-8">
       <WorkspaceOverview
         eyebrow="Operations"
         title="Care delivery exceptions"
@@ -21,6 +24,9 @@ export default function OperationsPage() {
           { title: "Visit note is incomplete", detail: "Oak View · visit VIS-9147", status: "Review", tone: "neutral" },
         ]}
       />
+      <OperationsDepth />
+      <CapabilityEvidence route="/operations" title="Visit, medication and observation controls" />
+      </div>
     </AppShell>
   );
 }

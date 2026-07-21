@@ -46,7 +46,7 @@ export function AskMuvePanel() {
         <Sparkles className="size-5" aria-hidden="true" />
       </div>
       <h2 id="ask-heading" className="text-lg font-semibold tracking-tight">Ask Muve</h2>
-      <p className="mt-1 text-sm leading-5 text-slate-500">Investigate approved metrics with cited evidence.</p>
+      <p className="mt-1 text-sm leading-5 text-slate-600">Investigate approved metrics with cited evidence.</p>
       <form onSubmit={submit} className="mt-5">
         <label htmlFor="ask-question" className="text-sm font-semibold text-slate-950">Your question</label>
         <textarea
@@ -66,13 +66,13 @@ export function AskMuvePanel() {
         <div aria-live="polite" className="mt-4 rounded-xl border border-violet-200 bg-white p-4">
           <p className="text-sm leading-6 text-slate-700">{answer.answer}</p>
           <p className="mt-3 text-xs font-semibold text-slate-600">Citation</p>
-          <ul className="mt-1 space-y-1 text-xs text-slate-500">
+          <ul className="mt-1 space-y-1 text-xs text-slate-600">
             {answer.citations.map((citation) => <li key={citation}>{citation}</li>)}
           </ul>
-          <p className="mt-3 text-xs text-slate-500">{answer.scope} · As of {answer.dataAsOf} · {answer.mode}</p>
+          <p className="mt-3 text-xs text-slate-600">{answer.scope} · As of {answer.dataAsOf} · {answer.mode}</p>
         </div>
       ) : null}
-      <p className="mt-4 text-xs leading-5 text-slate-500">AI cannot submit notifications or change care records. Every factual claim must cite its source.</p>
+      <p className="mt-4 text-xs leading-5 text-slate-600">AI cannot submit notifications or change care records. Every factual claim must cite its source.</p>
     </div>
   );
 }

@@ -93,7 +93,7 @@ export function AppShell({
             <button type="button" className="hidden min-h-10 items-center gap-2 rounded-xl border border-slate-200 px-3 text-left text-sm sm:flex" aria-label="Current service scope">
               <ClipboardCheck className="size-4 text-cyan-700" aria-hidden="true" />
               <span>
-                <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-400">Scope</span>
+                <span className="block text-[10px] font-semibold uppercase tracking-wider text-slate-600">Scope</span>
                 <span className="font-medium">All services</span>
               </span>
               <ChevronDown className="size-4 text-slate-400" aria-hidden="true" />

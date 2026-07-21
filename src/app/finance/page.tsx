@@ -1,9 +1,12 @@
 import { AppShell } from "@/components/app-shell";
+import { CapabilityEvidence } from "@/components/capability-evidence";
+import { FinanceDepth } from "@/components/finance-depth";
 import { WorkspaceOverview } from "@/components/workspace-overview";
 
 export default function FinancePage() {
   return (
     <AppShell active="finance">
+      <div className="space-y-8">
       <WorkspaceOverview
         eyebrow="Finance"
         title="Financial assurance"
@@ -21,6 +24,9 @@ export default function FinancePage() {
           { title: "Payment promise passed without receipt", detail: "Local authority account · invoice INV-382", status: "Overdue", tone: "warning" },
         ]}
       />
+      <FinanceDepth />
+      <CapabilityEvidence route="/finance" title="Finance assurance controls" />
+      </div>
     </AppShell>
   );
 }

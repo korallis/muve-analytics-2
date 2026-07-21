@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock3 } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
+import { CapabilityEvidence } from "@/components/capability-evidence";
+import { ClientAssuranceDepth } from "@/components/client-assurance-depth";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { canAccessClient, demoAccess } from "@/lib/auth/access";
@@ -41,6 +43,8 @@ export default async function ClientPage({ params }: { params: Promise<{ id: str
             </ol>
           </CardContent>
         </Card>
+        <ClientAssuranceDepth />
+        <CapabilityEvidence route="/people-supported/clients/RH-014" title="Client 360 safety controls" />
       </div>
     </AppShell>
   );

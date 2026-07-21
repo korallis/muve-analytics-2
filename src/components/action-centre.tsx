@@ -42,6 +42,8 @@ export function ActionCentre() {
                   <span className="inline-flex items-center gap-1"><Clock3 className="size-3.5" aria-hidden="true" />Due {new Date(action.dueDate).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" })}</span>
                   <span className="inline-flex items-center gap-1"><CheckCircle2 className="size-3.5" aria-hidden="true" />{action.status}</span>
                 </div>
+                <p className="mt-3 text-xs text-slate-500">Reviewer: {action.reviewer ?? "Not assigned"} · Evidence: {action.evidenceLink ?? "Required before controlled completion"}</p>
+                <details className="mt-2 text-xs text-slate-500"><summary className="cursor-pointer font-semibold text-cyan-800">Full history</summary><ul className="mt-2 list-disc space-y-1 pl-5">{action.history.map((entry) => <li key={entry}>{entry}</li>)}</ul></details>
               </div>
               <Button variant="outline" onClick={() => advance(action.id)} disabled={action.status === "Awaiting evidence" || action.status === "Complete"}>
                 {action.status === "Open" ? "Start action" : action.status === "In progress" ? "Request sign-off" : "Evidence required"}
