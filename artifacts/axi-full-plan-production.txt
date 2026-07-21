@@ -1,0 +1,265 @@
+$ chrome-devtools-axi open https://muve-analytics-2.vercel.app/delivery-readiness
+page:
+  title: Muve Intelligence
+  url: "https://muve-analytics-2.vercel.app/delivery-readiness"
+  refs: 105
+snapshot:
+uid=g1:1_0 RootWebArea "Muve Intelligence" url="https://muve-analytics-2.vercel.app/delivery-readiness"
+  uid=g1:1_1 link "Skip to main content" url="https://muve-analytics-2.vercel.app/delivery-readiness#main-content"
+    uid=g1:1_2 StaticText "Skip to main content"
+  uid=g1:1_3 complementary
+    uid=g1:1_4 link "Muve Intelligence home" url="https://muve-analytics-2.vercel.app/today"
+      uid=g1:1_5 StaticText "M"
+      uid=g1:1_6 StaticText "MUVE"
+      uid=g1:1_7 StaticText "Assurance intelligence"
+    uid=g1:1_8 navigation "Primary"
+      uid=g1:1_9 link "Today" url="https://muve-analytics-2.vercel.app/today"
+        uid=g1:1_10 StaticText "Today"
+      uid=g1:1_11 link "People Supported" url="https://muve-analytics-2.vercel.app/people-supported"
+        uid=g1:1_12 StaticText "People Supported"
+      uid=g1:1_13 link "Quality & Governance" url="https://muve-analytics-2.vercel.app/quality-governance"
+        uid=g1:1_14 StaticText "Quality & Governance"
+      uid=g1:1_15 link "Operations" url="https://muve-analytics-2.vercel.app/operations"
+        uid=g1:1_16 StaticText "Operations"
+      uid=g1:1_17 link "Workforce" url="https://muve-analytics-2.vercel.app/workforce"
+        uid=g1:1_18 StaticText "Workforce"
+      uid=g1:1_19 link "Finance" url="https://muve-analytics-2.vercel.app/finance"
+        uid=g1:1_20 StaticText "Finance"
+      uid=g1:1_21 link "Evidence & Reports" url="https://muve-analytics-2.vercel.app/evidence-reports"
+        uid=g1:1_22 StaticText "Evidence & Reports"
+    uid=g1:1_23 StaticText "LB"
+    uid=g1:1_24 StaticText "Registered Manager"
+    uid=g1:1_25 StaticText "All demonstration services"
+  uid=g1:1_26 banner
+    uid=g1:1_27 button "Current service scope"
+    uid=g1:1_28 button "Search records"
+    uid=g1:1_29 link "Ask Muve" url="https://muve-analytics-2.vercel.app/today#ask-muve"
+      uid=g1:1_30 StaticText "Ask Muve"
+  uid=g1:1_31 main
+    uid=g1:1_32 StaticText "Plan implementation preview"
+    uid=g1:1_33 StaticText "Demonstration data · no personal data"
+    uid=g1:1_34 StaticText "Platform delivery"
+    uid=g1:1_35 heading "Release readiness" level="1"
+    uid=g1:1_36 StaticText "Preview isolation, contract tests, browser journeys, accessibility and cutover controls in one release gate."
+    uid=g1:1_37 region "Release summary"
+      uid=g1:1_38 StaticText "57/57"
+      uid=g1:1_39 StaticText "Story gates"
+      uid=g1:1_40 StaticText "10"
+      uid=g1:1_41 StaticText "Vitest checks"
+      uid=g1:1_42 StaticText "0"
+      uid=g1:1_43 StaticText "Serious axe issues"
+      uid=g1:1_44 StaticText "Ready"
+      uid=g1:1_45 StaticText "Vercel production"
+    uid=g1:1_46 heading "Full-suite release gate" level="2"
+    uid=g1:1_47 StaticText "Each result is reproducible from committed fixtures and scripts."
+    uid=g1:1_48 heading "Preview isolation" level="2"
+    uid=g1:1_49 StaticText "Vercel preview + anonymised fixture database; no production PII"
+    uid=g1:1_50 StaticText "Green"
+    uid=g1:1_51 heading "Pipeline contracts" level="2"
+    uid=g1:1_52 StaticText "Schema, uniqueness, relationships, row counts, null coverage and invariants"
+    uid=g1:1_53 StaticText "Green"
+    uid=g1:1_54 heading "Semantic tests" level="2"
+    uid=g1:1_55 StaticText "Compiled metric definitions reconcile against fixture marts"
+    uid=g1:1_56 StaticText "Green"
+    uid=g1:1_57 heading "Journey and a11y" level="2"
+    uid=g1:1_58 StaticText "Persona journeys plus axe scans; serious and critical violations fail"
+    uid=g1:1_59 StaticText "Green"
+    uid=g1:1_60 heading "AI evaluations" level="2"
+    uid=g1:1_61 StaticText "Citations, unsupported claims, access leakage, prompt injection and unsafe recommendations"
+    uid=g1:1_62 StaticText "Green"
+    uid=g1:1_63 heading "Cutover parity" level="2"
+    uid=g1:1_64 StaticText "Fixture shadow run classifies exact parity, correction, source limitation or defect"
+    uid=g1:1_65 StaticText "Green"
+    uid=g1:1_66 region "Platform and delivery controls"
+      uid=g1:1_67 heading "Platform and delivery controls" level="2"
+      uid=g1:1_68 StaticText "Approved behaviours, policy boundaries and evidence contracts for this workspace."
+      uid=g1:1_69 StaticText "3"
+      uid=g1:1_70 StaticText " controls validated"
+      uid=g1:1_71 StaticText "E10.1"
+      uid=g1:1_72 StaticText "P0"
+      uid=g1:1_73 StaticText " · Phase "
+      uid=g1:1_74 StaticText "1"
+      uid=g1:1_75 heading "As an SA, I want every PR to get a Vercel preview with a Neon branch seeded from anonymised-but-realistic fixtures — review happens on real shapes, never production PII." level="2"
+      uid=g1:1_76 StaticText "Validated as "
+      uid=g1:1_77 StaticText "an SA"
+      uid=g1:1_78 StaticText " with anonymised fixture data."
+      uid=g1:1_79 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g1:1_80 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g1:1_81 StaticText "Definition v1.0 · policy scoped"
+      uid=g1:1_82 StaticText "E10.2"
+      uid=g1:1_83 StaticText "P0"
+      uid=g1:1_84 StaticText " · Phase "
+      uid=g1:1_85 StaticText "1"
+      uid=g1:1_86 heading "As an SA, I want pipeline data tests (§4.4 step 5) on every load, and the semantic layer unit-tested (compiled SQL per metric against fixture marts)." level="2"
+      uid=g1:1_87 StaticText "Validated as "
+      uid=g1:1_88 StaticText "an SA"
+      uid=g1:1_89 StaticText " with anonymised fixture data."
+      uid=g1:1_90 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g1:1_91 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g1:1_92 StaticText "Definition v1.0 · policy scoped"
+      uid=g1:1_93 StaticText "E10.3"
+      uid=g1:1_94 StaticText "P1"
+      uid=g1:1_95 StaticText " · Phase "
+      uid=g1:1_96 StaticText "4"
+      uid=g1:1_97 heading "As an SA, I want E2E journey, accessibility (WCAG 2.2 AA), and AI-evaluation suites wired into CI (§9)." level="2"
+      uid=g1:1_98 StaticText "Validated as "
+      uid=g1:1_99 StaticText "an SA"
+      uid=g1:1_100 StaticText " with anonymised fixture data."
+      uid=g1:1_101 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g1:1_102 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g1:1_103 StaticText "Definition v1.0 · policy scoped"
+  uid=g1:1_104 alert atomic live="assertive" relevant="additions text"
+help[4]:
+  Run `chrome-devtools-axi click @g1:1_27` to click the "Current service scope" button
+  Run `chrome-devtools-axi click @g1:1_1` to click the "Skip to main content" link
+  Run `chrome-devtools-axi scroll down` to scroll down
+  Use `chrome-devtools-axi eval <expr>` for JS expressions. For multi-statement code, pass a function: `eval "() => { ...; return result }"`
+$ chrome-devtools-axi snapshot
+page:
+  title: Muve Intelligence
+  refs: 105
+snapshot:
+uid=g2:1_0 RootWebArea "Muve Intelligence" url="https://muve-analytics-2.vercel.app/delivery-readiness"
+  uid=g2:1_1 link "Skip to main content" url="https://muve-analytics-2.vercel.app/delivery-readiness#main-content"
+    uid=g2:1_2 StaticText "Skip to main content"
+  uid=g2:1_3 complementary
+    uid=g2:1_4 link "Muve Intelligence home" url="https://muve-analytics-2.vercel.app/today"
+      uid=g2:1_5 StaticText "M"
+      uid=g2:1_6 StaticText "MUVE"
+      uid=g2:1_7 StaticText "Assurance intelligence"
+    uid=g2:1_8 navigation "Primary"
+      uid=g2:1_9 link "Today" url="https://muve-analytics-2.vercel.app/today"
+        uid=g2:1_10 StaticText "Today"
+      uid=g2:1_11 link "People Supported" url="https://muve-analytics-2.vercel.app/people-supported"
+        uid=g2:1_12 StaticText "People Supported"
+      uid=g2:1_13 link "Quality & Governance" url="https://muve-analytics-2.vercel.app/quality-governance"
+        uid=g2:1_14 StaticText "Quality & Governance"
+      uid=g2:1_15 link "Operations" url="https://muve-analytics-2.vercel.app/operations"
+        uid=g2:1_16 StaticText "Operations"
+      uid=g2:1_17 link "Workforce" url="https://muve-analytics-2.vercel.app/workforce"
+        uid=g2:1_18 StaticText "Workforce"
+      uid=g2:1_19 link "Finance" url="https://muve-analytics-2.vercel.app/finance"
+        uid=g2:1_20 StaticText "Finance"
+      uid=g2:1_21 link "Evidence & Reports" url="https://muve-analytics-2.vercel.app/evidence-reports"
+        uid=g2:1_22 StaticText "Evidence & Reports"
+    uid=g2:1_23 StaticText "LB"
+    uid=g2:1_24 StaticText "Registered Manager"
+    uid=g2:1_25 StaticText "All demonstration services"
+  uid=g2:1_26 banner
+    uid=g2:1_27 button "Current service scope"
+    uid=g2:1_28 button "Search records"
+    uid=g2:1_29 link "Ask Muve" url="https://muve-analytics-2.vercel.app/today#ask-muve"
+      uid=g2:1_30 StaticText "Ask Muve"
+  uid=g2:1_31 main
+    uid=g2:1_32 StaticText "Plan implementation preview"
+    uid=g2:1_33 StaticText "Demonstration data · no personal data"
+    uid=g2:1_34 StaticText "Platform delivery"
+    uid=g2:1_35 heading "Release readiness" level="1"
+    uid=g2:1_36 StaticText "Preview isolation, contract tests, browser journeys, accessibility and cutover controls in one release gate."
+    uid=g2:1_37 region "Release summary"
+      uid=g2:1_38 StaticText "57/57"
+      uid=g2:1_39 StaticText "Story gates"
+      uid=g2:1_40 StaticText "10"
+      uid=g2:1_41 StaticText "Vitest checks"
+      uid=g2:1_42 StaticText "0"
+      uid=g2:1_43 StaticText "Serious axe issues"
+      uid=g2:1_44 StaticText "Ready"
+      uid=g2:1_45 StaticText "Vercel production"
+    uid=g2:1_46 heading "Full-suite release gate" level="2"
+    uid=g2:1_47 StaticText "Each result is reproducible from committed fixtures and scripts."
+    uid=g2:1_48 heading "Preview isolation" level="2"
+    uid=g2:1_49 StaticText "Vercel preview + anonymised fixture database; no production PII"
+    uid=g2:1_50 StaticText "Green"
+    uid=g2:1_51 heading "Pipeline contracts" level="2"
+    uid=g2:1_52 StaticText "Schema, uniqueness, relationships, row counts, null coverage and invariants"
+    uid=g2:1_53 StaticText "Green"
+    uid=g2:1_54 heading "Semantic tests" level="2"
+    uid=g2:1_55 StaticText "Compiled metric definitions reconcile against fixture marts"
+    uid=g2:1_56 StaticText "Green"
+    uid=g2:1_57 heading "Journey and a11y" level="2"
+    uid=g2:1_58 StaticText "Persona journeys plus axe scans; serious and critical violations fail"
+    uid=g2:1_59 StaticText "Green"
+    uid=g2:1_60 heading "AI evaluations" level="2"
+    uid=g2:1_61 StaticText "Citations, unsupported claims, access leakage, prompt injection and unsafe recommendations"
+    uid=g2:1_62 StaticText "Green"
+    uid=g2:1_63 heading "Cutover parity" level="2"
+    uid=g2:1_64 StaticText "Fixture shadow run classifies exact parity, correction, source limitation or defect"
+    uid=g2:1_65 StaticText "Green"
+    uid=g2:1_66 region "Platform and delivery controls"
+      uid=g2:1_67 heading "Platform and delivery controls" level="2"
+      uid=g2:1_68 StaticText "Approved behaviours, policy boundaries and evidence contracts for this workspace."
+      uid=g2:1_69 StaticText "3"
+      uid=g2:1_70 StaticText " controls validated"
+      uid=g2:1_71 StaticText "E10.1"
+      uid=g2:1_72 StaticText "P0"
+      uid=g2:1_73 StaticText " · Phase "
+      uid=g2:1_74 StaticText "1"
+      uid=g2:1_75 heading "As an SA, I want every PR to get a Vercel preview with a Neon branch seeded from anonymised-but-realistic fixtures — review happens on real shapes, never production PII." level="2"
+      uid=g2:1_76 StaticText "Validated as "
+      uid=g2:1_77 StaticText "an SA"
+      uid=g2:1_78 StaticText " with anonymised fixture data."
+      uid=g2:1_79 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g2:1_80 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g2:1_81 StaticText "Definition v1.0 · policy scoped"
+      uid=g2:1_82 StaticText "E10.2"
+      uid=g2:1_83 StaticText "P0"
+      uid=g2:1_84 StaticText " · Phase "
+      uid=g2:1_85 StaticText "1"
+      uid=g2:1_86 heading "As an SA, I want pipeline data tests (§4.4 step 5) on every load, and the semantic layer unit-tested (compiled SQL per metric against fixture marts)." level="2"
+      uid=g2:1_87 StaticText "Validated as "
+      uid=g2:1_88 StaticText "an SA"
+      uid=g2:1_89 StaticText " with anonymised fixture data."
+      uid=g2:1_90 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g2:1_91 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g2:1_92 StaticText "Definition v1.0 · policy scoped"
+      uid=g2:1_93 StaticText "E10.3"
+      uid=g2:1_94 StaticText "P1"
+      uid=g2:1_95 StaticText " · Phase "
+      uid=g2:1_96 StaticText "4"
+      uid=g2:1_97 heading "As an SA, I want E2E journey, accessibility (WCAG 2.2 AA), and AI-evaluation suites wired into CI (§9)." level="2"
+      uid=g2:1_98 StaticText "Validated as "
+      uid=g2:1_99 StaticText "an SA"
+      uid=g2:1_100 StaticText " with anonymised fixture data."
+      uid=g2:1_101 DisclosureTriangle "View acceptance evidence" expandable
+      uid=g2:1_102 StaticText "Watermark 21 Jul 2026 09:34"
+      uid=g2:1_103 StaticText "Definition v1.0 · policy scoped"
+  uid=g2:1_104 alert atomic live="assertive" relevant="additions text"
+help[4]:
+  Run `chrome-devtools-axi click @g2:1_27` to click the "Current service scope" button
+  Run `chrome-devtools-axi click @g2:1_1` to click the "Skip to main content" link
+  Run `chrome-devtools-axi scroll down` to scroll down
+  Use `chrome-devtools-axi eval <expr>` for JS expressions. For multi-statement code, pass a function: `eval "() => { ...; return result }"`
+$ chrome-devtools-axi console
+console:
+## Console messages
+<no console messages found>
+help[2]:
+  Run `chrome-devtools-axi console-get <id>` to see a specific message
+  Run `chrome-devtools-axi console --type error` to filter by type
+$ chrome-devtools-axi network
+network:
+## Network requests
+Showing 1-23 of 23 (Page 1 of 1).
+reqid=1 GET https://muve-analytics-2.vercel.app/delivery-readiness [200]
+reqid=2 GET https://muve-analytics-2.vercel.app/_next/static/chunks/0qu2y_o75rfqm.css?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=3 GET https://muve-analytics-2.vercel.app/_next/static/chunks/261y1hxfsqgcm.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=4 GET https://muve-analytics-2.vercel.app/_next/static/chunks/27jktro2p5rq9.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=5 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3hdj40qmts5sf.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=6 GET https://muve-analytics-2.vercel.app/_next/static/chunks/0wedojzj4swwk.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=7 GET https://muve-analytics-2.vercel.app/_next/static/chunks/turbopack-240nuwd76--62.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=8 GET https://muve-analytics-2.vercel.app/_next/static/chunks/05-c3ty_6dwfk.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=9 GET https://muve-analytics-2.vercel.app/_next/static/chunks/14mrh2-p_w84d.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=10 GET https://muve-analytics-2.vercel.app/_next/static/chunks/2mnldv4j0sib4.js?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=11 GET https://muve-analytics-2.vercel.app/favicon.ico?favicon.2vob68tjqpejf.ico?dpl=dpl_CjTw9HPvj155KZwtbmRbepBYBvcH [200]
+reqid=12 GET https://muve-analytics-2.vercel.app/today?_rsc=9YMkKHQ_v9EDHg8s [200]
+reqid=13 GET https://muve-analytics-2.vercel.app/evidence-reports?_rsc=9YMkKHQ_v9EDHg8s [200]
+reqid=14 GET https://muve-analytics-2.vercel.app/finance?_rsc=9YMkKHQ_v9EDHg8s [200]
+reqid=15 GET https://muve-analytics-2.vercel.app/workforce?_rsc=9YMkKHQ_v9EDHg8s [200]
+reqid=16 GET https://muve-analytics-2.vercel.app/operations?_rsc=9YMkKHQ_v9EDHg8s [200]
+reqid=17 GET https://muve-analytics-2.vercel.app/quality-governance?_rsc=9YMkKHQ_v9EDHg8s [200]
+    ... (truncated, 2489 chars total)
+help[2]:
+  Run `chrome-devtools-axi network-get <id>` to see request details
+  Run `chrome-devtools-axi network --type fetch` to filter by type
+screenshot: /Users/leebarry/Projects/muve-analytics-2/artifacts/axi-full-plan-production.png
+status: stopped
