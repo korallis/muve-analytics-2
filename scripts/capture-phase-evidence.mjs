@@ -6,9 +6,10 @@ import { chromium } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 const repo = process.cwd();
+const evidenceRoot = process.env.PHASE_EVIDENCE_ROOT ? resolve(process.env.PHASE_EVIDENCE_ROOT) : resolve(repo, "delivery/evidence");
 const port = 5400 + (process.pid % 400);
-const baseUrl = `http://127.0.0.1:${port}`;
-const server = spawn("npm", ["run", "dev", "--", "--hostname", "127.0.0.1", "--port", String(port)], {
+const baseUrl = process.env.STORY_BROWSER_BASE_URL ?? `http://127.0.0.1:${port}`;
+const server = process.env.STORY_BROWSER_BASE_URL ? null : spawn("npm", ["run", "dev", "--", "--hostname", "127.0.0.1", "--port", String(port)], {
   cwd: repo,
   env: { ...process.env, AUTH_REQUIRED: "true", MUVE_SESSION_TOKEN: "phase-fixture-session", NEXT_TELEMETRY_DISABLED: "1" },
   stdio: ["ignore", "pipe", "pipe"],
@@ -35,7 +36,7 @@ await waitForServer();
 const browser = await chromium.launch({ channel: "chrome", headless: true });
 try {
   for (const [phase, routes] of Object.entries(journeys)) {
-    const dir = resolve(repo, "delivery/evidence", `phase-${phase}`);
+    const dir = resolve(evidenceRoot, `phase-${phase}`);
     await mkdir(dir, { recursive: true });
     const context = await browser.newContext({ viewport: { width: 1365, height: 850 } });
     await context.tracing.start({ screenshots: true, snapshots: true });
@@ -62,7 +63,9 @@ try {
   }
 } finally {
   await browser.close();
-  server.kill("SIGTERM");
-  await new Promise((done) => setTimeout(done, 300));
-  if (!server.killed) server.kill("SIGKILL");
+  if (server) {
+    server.kill("SIGTERM");
+    await new Promise((done) => setTimeout(done, 300));
+    if (!server.killed) server.kill("SIGKILL");
+  }
 }

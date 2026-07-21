@@ -9,7 +9,10 @@
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "validate:full": "python3 scripts/run-full-delivery-suite.py",
+    "evidence": "node scripts/capture-story-evidence.mjs all && node scripts/capture-phase-evidence.mjs",
+    "nfr": "node scripts/measure-nfr.mjs"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^4.0.26",

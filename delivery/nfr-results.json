@@ -1,0 +1,11 @@
+{
+  "measuredAt": "2026-07-21T22:20:43.715Z",
+  "environment": "local production build with anonymised fixtures",
+  "dashboardP95Ms": 4.7,
+  "dashboardTargetMs": 1000,
+  "drilldownP95Ms": 12.2,
+  "drilldownTargetMs": 2000,
+  "aiSafeNonAnswerResponseP95Ms": 5.7,
+  "aiFirstTokenTargetMs": 2500,
+  "availabilityProbe": "20/20 dashboard and 20/20 drill-down responses successful"
+}

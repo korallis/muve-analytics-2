@@ -8,6 +8,7 @@ import AxeBuilder from "@axe-core/playwright";
 const repo = process.cwd();
 const contracts = JSON.parse(await readFile(resolve(repo, "src/lib/delivery/story-contracts.json"), "utf8"));
 const requested = process.argv[2] ?? "all";
+const evidenceRoot = process.env.STORY_EVIDENCE_ROOT ? resolve(process.env.STORY_EVIDENCE_ROOT) : resolve(repo, "delivery/evidence");
 const selected = requested === "all" ? contracts : contracts.filter((story) => story.id === requested);
 if (selected.length === 0) throw new Error(`Unknown story ${requested}`);
 
@@ -58,7 +59,7 @@ let failures = 0;
 
 try {
   for (const story of selected) {
-    const evidenceDir = resolve(repo, "delivery/evidence", `phase-${story.phase}`, story.id);
+    const evidenceDir = resolve(evidenceRoot, `phase-${story.phase}`, story.id);
     await mkdir(evidenceDir, { recursive: true });
     for (const name of await readdir(evidenceDir).catch(() => [])) {
       if (name.endsWith(".png") || name === "trace.zip") await rm(resolve(evidenceDir, name), { force: true });
