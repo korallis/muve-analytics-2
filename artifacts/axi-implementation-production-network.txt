@@ -1,0 +1,24 @@
+network:
+## Network requests
+Showing 1-32 of 32 (Page 1 of 1).
+reqid=268 GET https://muve-analytics-2.vercel.app/today [304]
+reqid=269 GET https://muve-analytics-2.vercel.app/_next/static/chunks/30wwwqis4njvk.css?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=270 GET https://muve-analytics-2.vercel.app/_next/static/chunks/1j1rit-3-hei4.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=271 GET https://muve-analytics-2.vercel.app/_next/static/chunks/15orcrkp-_9ct.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=272 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3hdj40qmts5sf.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=273 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3px1fn4z13fiy.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=274 GET https://muve-analytics-2.vercel.app/_next/static/chunks/turbopack-2f-0egs9e3bd_.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=275 GET https://muve-analytics-2.vercel.app/_next/static/chunks/05-c3ty_6dwfk.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=276 GET https://muve-analytics-2.vercel.app/_next/static/chunks/14mrh2-p_w84d.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=277 GET https://muve-analytics-2.vercel.app/_next/static/chunks/3rrlj4x3gl4e5.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=278 GET https://muve-analytics-2.vercel.app/_next/static/chunks/1m4htjma6z-xg.js?dpl=dpl_6kKY3kgjfuMkeenNd7c57QhtSXmm [200]
+reqid=279 GET https://muve-analytics-2.vercel.app/workforce?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=280 GET https://muve-analytics-2.vercel.app/operations?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=281 GET https://muve-analytics-2.vercel.app/quality-governance?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=282 GET https://muve-analytics-2.vercel.app/people-supported?_rsc=bsU8Amt3f0T1Tw-f [304]
+reqid=283 GET https://muve-analytics-2.vercel.app/quality-governance?_rsc=32pjnp9QTWFJBJRm [304]
+reqid=284 GET https://muve-analytics-2.vercel.app/quality-governance?_rsc=tzc15p1PuSGHyju8 [200]
+    ... (truncated, 3381 chars total)
+help[2]:
+  Run `chrome-devtools-axi network-get <id>` to see request details
+  Run `chrome-devtools-axi network --type fetch` to filter by type

@@ -2,7 +2,11 @@
 
 import { spawn, spawnSync } from "node:child_process";
 
-const env = { ...process.env, NEXT_TELEMETRY_DISABLED: "1" };
+const env = {
+  ...process.env,
+  NEXT_TELEMETRY_DISABLED: "1",
+  PYTHONPATH: [process.cwd() + "/pipeline", process.env.PYTHONPATH].filter(Boolean).join(":"),
+};
 let failures = 0;
 
 function result(name, passed, detail = "") {
@@ -69,6 +73,10 @@ async function validateRuntime() {
       "/workforce",
       "/finance",
       "/evidence-reports",
+      "/actions",
+      "/integration-health",
+      "/people-supported/clients/RH-014",
+      "/sign-in",
     ];
 
     let routeFailures = 0;
@@ -94,6 +102,18 @@ async function validateRuntime() {
       qualityResponse.status === 200 && qualityHtml.includes("Quality statement assurance") && qualityHtml.includes("not a predicted CQC rating"),
       `status ${qualityResponse.status}`,
     );
+
+    const askResponse = await fetch(`${baseUrl}/api/ai/ask`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: "How did visit delivery change?" }),
+    });
+    const ask = await askResponse.json();
+    result(
+      "Ask Muve cited response",
+      askResponse.status === 200 && typeof ask.answer === "string" && Array.isArray(ask.citations) && ask.citations.length > 0,
+      `${askResponse.status} ${ask.mode ?? "invalid"}`,
+    );
   } catch (error) {
     result("runtime route checks", false, error instanceof Error ? error.message : String(error));
     if (serverLog.trim()) console.log(serverLog.trim());
@@ -108,6 +128,9 @@ console.log("Muve Analytics 2.0 validation");
 console.log("================================");
 commandCheck("lint", "npm", ["run", "lint"]);
 commandCheck("typecheck", "npm", ["run", "typecheck"]);
+commandCheck("unit tests", "npm", ["run", "test"]);
+commandCheck("Python pipeline syntax", "python3", ["-m", "compileall", "-q", "pipeline"]);
+commandCheck("Python pipeline contract", "python3", ["-m", "muve_pipeline.runner", "--dry-run"]);
 commandCheck("production build", "npm", ["run", "build"]);
 
 if (failures === 0) await validateRuntime();

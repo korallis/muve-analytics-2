@@ -6,10 +6,10 @@ import {
   Clock3,
   Database,
   ShieldAlert,
-  Sparkles,
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
+import { AskMuvePanel } from "@/components/ask-muve-panel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -130,22 +130,8 @@ export function TodayDashboard() {
         </Card>
 
         <Card id="ask-muve" aria-labelledby="ask-heading" className="overflow-hidden border-violet-200 bg-gradient-to-b from-violet-50 to-white">
-          <CardHeader>
-            <div>
-              <div className="mb-3 grid size-10 place-items-center rounded-xl bg-violet-200 text-violet-950">
-                <Sparkles className="size-5" aria-hidden="true" />
-              </div>
-              <CardTitle id="ask-heading">Ask Muve</CardTitle>
-              <CardDescription>Investigate approved metrics with cited evidence.</CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="rounded-xl border border-violet-200 bg-white p-4">
-              <p className="text-sm font-semibold text-slate-950">Suggested investigation</p>
-              <p className="mt-2 text-sm leading-6 text-slate-600">“Why did responsive assurance weaken at North Supported Living this month?”</p>
-              <Button className="mt-4 w-full bg-violet-700 hover:bg-violet-800">Run cited investigation</Button>
-            </div>
-            <p className="mt-4 text-xs leading-5 text-slate-500">AI cannot submit notifications or change care records. Every factual claim must cite its source.</p>
+          <CardContent className="p-6">
+            <AskMuvePanel />
           </CardContent>
         </Card>
       </div>
@@ -194,6 +180,7 @@ export function TodayDashboard() {
               <p className="mt-1 text-sm text-slate-500">Thursday 24 July · 10:00</p>
               <p className="mt-3 text-xs leading-5 text-slate-500">Three action owners still need to attach completion evidence.</p>
             </div>
+            <Button asChild variant="outline" className="mt-4 w-full"><Link href="/actions">Open Action Centre</Link></Button>
           </CardContent>
         </Card>
       </div>

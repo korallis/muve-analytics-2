@@ -1,33 +1,29 @@
-# AXI browser validation — Muve Analytics 2.0 Phase 0
+# AXI browser validation — Muve Analytics 2.0 plan implementation
 
-**Driver:** `chrome-devtools-axi` controlling real headless Chrome  
-**Session:** `muve-analytics2-phase0`  
-**Candidate:** local production build created by `npm run build`  
-**Loaded origin:** `http://127.0.0.1:4318`  
-**Primary loaded URL:** `http://127.0.0.1:4318/today`  
-**Production URL retested after deployment:** `https://muve-analytics-2.vercel.app/today`
+**Driver:** `chrome-devtools-axi` controlling a real Chrome session
 
-## Journeys executed
+**Local origin:** `http://127.0.0.1:4318`
 
-1. AXI opened `http://127.0.0.1:4318/today` at desktop size 1440×1000 and captured the complete accessibility snapshot in `axi-today-open.txt`. The snapshot exposed a single level-one heading, labelled Primary navigation, Today summary region, Priority worklist region, Ask Muve region, labelled review controls and all seven workspace links.
-2. AXI clicked the real **Open quality statement matrix** link by accessibility reference and confirmed navigation to `http://127.0.0.1:4318/quality-governance`. The post-click snapshot in `axi-quality-snapshot.txt` confirmed all 34 CQC statements, the correct 8/6/5/7/8 distribution, six evidence categories and the explicit “not a predicted CQC rating” warning.
-3. AXI opened every remaining route in the same browser session: `/people-supported`, `/operations`, `/workforce`, `/finance` and `/evidence-reports`. The resulting browser accessibility snapshots are in `axi-all-workspaces.txt`; each loaded with the expected heading, summary regions, exception list and assurance-cycle content.
-4. AXI emulated a 390×844 mobile touch viewport at device scale factor 3, reopened `/today`, and captured the complete mobile accessibility snapshot in `axi-today-mobile-open.txt`. The desktop sidebar was replaced by the labelled Mobile primary navigation, content retained logical heading order and no control disappeared from the accessibility tree.
-5. AXI keyboard testing pressed Tab from page load. Focus landed on **Skip to main content**. Pressing Enter changed the URL to `#main-content` and focused the main landmark. Raw focus evidence is in `axi-keyboard-focus.txt` and `axi-keyboard-result.txt`.
-6. AXI console inspection returned `<no console messages found>` (`axi-console.txt`). AXI network inspection showed successful 200/304 responses for the document, Next.js assets and prefetched workspace routes (`axi-network.txt`).
-7. AXI opened `http://127.0.0.1:4318/api/health`; the browser snapshot in `axi-health-snapshot.txt` contains `status: ok`, `service: muve-analytics-2`, `phase: phase-0`, and passing runtime/routing checks.
-8. After Vercel reported the production deployment Ready, a separate AXI session (`muve-analytics2-production`) loaded `https://muve-analytics-2.vercel.app/today`, clicked through to `https://muve-analytics-2.vercel.app/quality-governance`, repeated the 390×844 mobile emulation and inspected the production console. The full snapshots are in `axi-production-today.txt`, `axi-production-quality.txt` and `axi-production-mobile-today.txt`; `axi-production-console.txt` records no console messages.
-9. A final isolated AXI session (`muve-analytics2-production-all`) opened the production root, all seven workspace routes and `/api/health`. `axi-production-all-routes.txt` contains a real accessibility snapshot for each loaded production URL, and `axi-production-all-console.txt` confirms no console messages after the complete route journey.
+**Production origin:** `https://muve-analytics-2.vercel.app`
+
+**Production deployment:** Vercel alias retested after the final AI Gateway deployment
+
+## Browser journeys completed
+
+1. **Command Centre / Today** — AXI loaded `/today` at desktop width and found the “Good morning, Lee” level-one heading, priority worklist, five-key-question assurance, Action Centre link and Ask Muve form. Raw snapshots: `axi-implementation-local-today.txt` and `axi-implementation-production-today.txt`.
+2. **Ask Muve through Vercel AI Gateway** — AXI clicked **Run cited investigation** in production and waited for the live response. The result reported mode `ai-gateway`, cited `Metric comparison · mart_visit_exceptions · 1.1.0`, stated scope and data time, and returned the approved visit-delivery comparison. Raw interaction: `axi-implementation-production-ask-click.txt` and `axi-implementation-production-ask-result.txt`.
+3. **Client 360** — AXI loaded `/people-supported/clients/RH-014` locally and in production. The accessibility snapshot contains the unified timeline and Visit, Medication, Observation and Safeguarding records with source identifiers. Raw snapshots: `axi-implementation-client-360.txt` and `axi-implementation-production-client-360.txt`.
+4. **Action Centre** — AXI loaded `/actions`, located action `ACT-206`, clicked **Start action**, and confirmed the control changed to **Request sign-off**. This proves the owner/due-date action lifecycle is operable in the browser. Raw snapshots: `axi-implementation-action-click.txt`, `axi-implementation-action-result.txt`, `axi-implementation-production-action-click.txt` and `axi-implementation-production-action-result.txt`.
+5. **Integration health and lineage** — AXI loaded `/integration-health` locally and in production. The snapshots include Birdie Snowflake, Neon marts, Xero, Spendesk and Vercel AI Gateway with status, loaded time and watermark evidence. Raw snapshots: `axi-implementation-integrations.txt` and `axi-implementation-production-integrations.txt`.
+6. **Workforce and Finance** — AXI exercised the existing workforce workspace and the final production Finance workspace. Finance exposes Xero package margin, Spendesk allocation and credit-control exceptions. Raw evidence: `axi-implementation-finance.txt` and `axi-implementation-production-finance.txt`; workforce remains covered by the original complete workspace run retained in this directory.
+7. **Responsive accessibility** — AXI resized Chrome to 390×844 and loaded `/today`. The mobile accessibility tree retained the labelled “Mobile primary” navigation and all command-centre content. Raw snapshots: `axi-implementation-mobile-today.txt` and `axi-implementation-production-mobile-today.txt`.
+8. **Runtime quality** — AXI console inspection returned `<no console messages found>` after the complete production journey. Network inspection found no HTTP 4xx/5xx document, API or asset requests. Evidence: `axi-implementation-production-console.txt` and `axi-implementation-production-network.txt`.
 
 ## Findings
 
-- **PASS:** Desktop and mobile page structure is available through the browser accessibility tree.
-- **PASS:** Workspace navigation functions through a real link interaction.
-- **PASS:** Skip-link keyboard journey moves focus to the main landmark.
-- **PASS:** Every planned Phase-0 workspace and the health endpoint loads in Chrome.
-- **PASS:** No browser console errors were emitted.
-- **PASS:** No failed document, asset or workspace request was found in the inspected network log.
-- **PASS:** Demonstration content is visibly labelled and contains no real personal data.
-- **PASS:** The final production alias was exercised through AXI at desktop and mobile sizes after deployment.
-
-No blocking browser issue was found. Raw AXI outputs are retained beside this report so another agent can reproduce and inspect individual snapshots rather than relying on this summary.
+- **PASS:** Command Centre, Client 360, Action Centre, integration health, Workforce and Xero Finance surfaces render through the real browser accessibility tree.
+- **PASS:** Ask Muve makes a production AI Gateway request and renders a metric-registry citation, scope and data timestamp.
+- **PASS:** The action workflow changes state only after a user click.
+- **PASS:** Mobile navigation and content remain accessible at 390×844.
+- **PASS:** Production console and network inspection found no blocking issue.
+- **PASS:** Demonstration records use coded identifiers and are explicitly labelled as containing no personal data.

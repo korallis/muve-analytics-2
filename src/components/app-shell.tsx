@@ -133,7 +133,7 @@ export function AppShell({
 
         <main id="main-content" tabIndex={-1} className="mx-auto min-h-[calc(100vh-4rem)] max-w-[1600px] p-4 outline-none sm:p-6 lg:p-8">
           <div className="mb-5 flex flex-wrap items-center gap-2">
-            <Badge tone="info">Phase 0 validated shell</Badge>
+            <Badge tone="info">Plan implementation preview</Badge>
             <span className="text-xs text-slate-500">Demonstration data · no personal data</span>
           </div>
           {children}

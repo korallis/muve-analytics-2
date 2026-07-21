@@ -12,6 +12,9 @@
 
 # testing
 /coverage
+**/__pycache__/
+*.pyc
+pipeline/.pipeline-state.json
 
 # next.js
 /.next/

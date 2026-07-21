@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock3, Database, TriangleAlert } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,7 +34,7 @@ export function WorkspaceOverview({
           <h1 className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">{description}</p>
         </div>
-        <Button variant="outline"><Database className="size-4" aria-hidden="true" />View data lineage</Button>
+        <Button asChild variant="outline"><Link href="/integration-health"><Database className="size-4" aria-hidden="true" />View data lineage</Link></Button>
       </header>
 
       <section aria-label={`${title} summary`} className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -84,7 +85,7 @@ export function WorkspaceOverview({
           <CardContent className="space-y-4">
             <div className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4"><CheckCircle2 className="size-5 text-emerald-700" aria-hidden="true" /><div><p className="text-sm font-semibold">12 checks complete</p><p className="text-xs text-slate-500">All with reviewed evidence</p></div></div>
             <div className="flex items-center gap-3 rounded-xl bg-amber-50 p-4"><Clock3 className="size-5 text-amber-700" aria-hidden="true" /><div><p className="text-sm font-semibold">4 actions in progress</p><p className="text-xs text-slate-500">One due within 24 hours</p></div></div>
-            <Button className="w-full">Open Action Centre <ArrowRight className="size-4" aria-hidden="true" /></Button>
+            <Button asChild className="w-full"><Link href="/actions">Open Action Centre <ArrowRight className="size-4" aria-hidden="true" /></Link></Button>
           </CardContent>
         </Card>
       </div>

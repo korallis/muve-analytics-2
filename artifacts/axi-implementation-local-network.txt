@@ -1,0 +1,32 @@
+network:
+## Network requests
+Showing 1-32 of 32 (Page 1 of 1).
+reqid=267 GET http://127.0.0.1:4318/today [304]
+reqid=268 GET http://127.0.0.1:4318/_next/static/chunks/30wwwqis4njvk.css [200]
+reqid=269 GET http://127.0.0.1:4318/_next/static/chunks/1j1rit-3-hei4.js [200]
+reqid=270 GET http://127.0.0.1:4318/_next/static/chunks/15orcrkp-_9ct.js [200]
+reqid=271 GET http://127.0.0.1:4318/_next/static/chunks/3hdj40qmts5sf.js [200]
+reqid=272 GET http://127.0.0.1:4318/_next/static/chunks/2-5nk792mwq2y.js [200]
+reqid=273 GET http://127.0.0.1:4318/_next/static/chunks/turbopack-0pbm3h0bcbqpy.js [200]
+reqid=274 GET http://127.0.0.1:4318/_next/static/chunks/05-c3ty_6dwfk.js [200]
+reqid=275 GET http://127.0.0.1:4318/_next/static/chunks/14mrh2-p_w84d.js [200]
+reqid=276 GET http://127.0.0.1:4318/_next/static/chunks/3rrlj4x3gl4e5.js [200]
+reqid=277 GET http://127.0.0.1:4318/_next/static/chunks/1m4htjma6z-xg.js [200]
+reqid=278 GET http://127.0.0.1:4318/workforce?_rsc=bsU8Amt3f0T1Tw-f [200]
+reqid=279 GET http://127.0.0.1:4318/operations?_rsc=bsU8Amt3f0T1Tw-f [200]
+reqid=280 GET http://127.0.0.1:4318/quality-governance?_rsc=bsU8Amt3f0T1Tw-f [200]
+reqid=281 GET http://127.0.0.1:4318/people-supported?_rsc=bsU8Amt3f0T1Tw-f [200]
+reqid=282 GET http://127.0.0.1:4318/workforce?_rsc=32pjnp9QTWFJBJRm [200]
+reqid=283 GET http://127.0.0.1:4318/workforce?_rsc=tzc15p1PuSGHyju8 [200]
+reqid=284 GET http://127.0.0.1:4318/workforce?_rsc=1fSJbB-WAiCfpq4Y [200]
+reqid=285 GET http://127.0.0.1:4318/workforce?_rsc=9RIXtY_KR7UNprAZ [200]
+reqid=286 GET http://127.0.0.1:4318/operations?_rsc=32pjnp9QTWFJBJRm [200]
+reqid=287 GET http://127.0.0.1:4318/operations?_rsc=hPqaQVmNJ6iAqhzH [200]
+reqid=288 GET http://127.0.0.1:4318/operations?_rsc=E-YzZCfJWvJox6If [200]
+reqid=289 GET http://127.0.0.1:4318/_next/static/chunks/2mnldv4j0sib4.js [200]
+reqid=290 GET http://127.0.0.1:4318/quality-governance?_rsc=32pjnp9QTWFJBJRm [200]
+reqid=291 GET http://127.0.0.1:4318/quality-governance?_rsc=iFuLUoZ0-bLDeh9w [200]
+    ... (truncated, 2517 chars total)
+help[2]:
+  Run `chrome-devtools-axi network-get <id>` to see request details
+  Run `chrome-devtools-axi network --type fetch` to filter by type

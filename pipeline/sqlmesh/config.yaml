@@ -1,0 +1,19 @@
+gateways:
+  neon:
+    connection:
+      type: postgres
+      host: "{{ env_var('PGHOST') }}"
+      user: "{{ env_var('PGUSER') }}"
+      password: "{{ env_var('PGPASSWORD') }}"
+      database: "{{ env_var('PGDATABASE') }}"
+    state_connection:
+      type: postgres
+      host: "{{ env_var('PGHOST') }}"
+      user: "{{ env_var('PGUSER') }}"
+      password: "{{ env_var('PGPASSWORD') }}"
+      database: "{{ env_var('PGDATABASE') }}"
+
+default_gateway: neon
+model_defaults:
+  dialect: postgres
+  start: 2026-01-01

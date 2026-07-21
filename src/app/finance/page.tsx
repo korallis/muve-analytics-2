@@ -7,9 +7,9 @@ export default function FinancePage() {
       <WorkspaceOverview
         eyebrow="Finance"
         title="Financial assurance"
-        description="Package economics, accounting health, expenses and credit control in one reconciled workspace."
+        description="Package economics, Xero accounting health, Spendesk expenses and credit control in one reconciled workspace."
         metrics={[
-          { label: "Package margin", value: "18.7%", detail: "+1.2 pp", tone: "success" },
+          { label: "Xero package margin", value: "18.7%", detail: "+1.2 pp", tone: "success" },
           { label: "Unallocated expenses", value: "£1.8k", detail: "6 need approval", tone: "warning" },
           { label: "Overdue receivables", value: "£42k", detail: "−£8k this month", tone: "info" },
           { label: "Broken promises", value: "2", detail: "Action required", tone: "danger" },
